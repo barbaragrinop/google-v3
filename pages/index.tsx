@@ -1,5 +1,7 @@
 import Head from "next/head";
+import Image from "next/image";
 import Header from "../components/Header";
+import { MagnifyingGlassIcon, MicrophoneIcon } from "@heroicons/react/24/solid";
 
 export default function Home() {
   return (
@@ -13,6 +15,24 @@ export default function Home() {
       {/* Header */}
       <Header />
       {/* Body */}
+      <form className="flex flex-col items-center mt-28">
+        <Image
+          src="https://logosmarcas.net/wp-content/uploads/2020/09/Google-Logo.png"
+          width="300"
+          style={{ objectFit: "cover" }}
+          height="100"
+          alt="Logo do Google em letras"
+        />
+        <div className="flex w-full mt-5 mx-auto justify-center border border-gray-200 hover:shadow-lg focus-within:shadow-lg px-5 py-3 rounded-full items-center sm:max-w-xl lg:max-w-2xl max-w-[90%] ">
+          <MagnifyingGlassIcon height="20" className="text-gray-500 mr-3" />
+          <input type="text" className="flex-grow focus:outline-none" />
+          <MicrophoneIcon height="20" />
+        </div>
+        <div className="flex flex-col sm:flex-row w-1/2 space-y-2 mt-8 sm:space-y-0 sm:space-x-4 justify-center ">
+          <button className="btn">Google Search</button>
+          <button className="btn">I'm feeling lucky</button>
+        </div>
+      </form>
       {/* Footer */}
     </>
   );
