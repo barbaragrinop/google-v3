@@ -10,6 +10,7 @@ import {
 } from "../typings/GoogleSearch";
 
 export default function search({ results }: GoogleSearchAPIPropSSR) {
+  console.log("results", results);
   const { query, push } = useRouter();
 
   return (
@@ -26,7 +27,8 @@ export default function search({ results }: GoogleSearchAPIPropSSR) {
 }
 
 export async function getServerSideProps(context: any) {
-  const mockData = true;
+  const startIndex = context.query.start || 1;
+  const mockData = false;
   const data: GoogleSearchAPI = mockData
     ? Response
     : await fetch(
@@ -34,7 +36,7 @@ export async function getServerSideProps(context: any) {
           process.env.API_KEY
         }&cx=${process.env.CONTEXT_KEY}&q=${context.query.term}${
           context.query.searchType && "&searchType=image"
-        }`
+        }&start=${startIndex}`
       ).then((response) => response.json());
 
   return {
