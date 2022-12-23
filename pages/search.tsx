@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
+import ImageResults from "../components/ImageResults";
 import SearchHeader from "../components/SearchHeader";
 import SearchResults from "../components/SearchResults";
 import Response from "../Response";
@@ -21,7 +22,11 @@ export default function search({ results }: GoogleSearchAPIPropSSR) {
       {/* search Header */}
       <SearchHeader />
       {/* search Result */}
-      <SearchResults results={results} />
+      {query.searchType === "image" ? (
+        <ImageResults results={results} />
+      ) : (
+        <SearchResults results={results} />
+      )}
     </div>
   );
 }
