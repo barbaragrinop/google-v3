@@ -26,9 +26,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* Header */}
       <Header />
-      {/* Body */}
       <form className="flex flex-col items-center mt-28">
         <Image
           src="https://logosmarcas.net/wp-content/uploads/2020/09/Google-Logo.png"
@@ -53,7 +51,6 @@ export default function Home() {
           <button className="btn">I'm feeling lucky</button>
         </div>
       </form>
-      {/* Footer */}
       <Footer />
     </>
   );
