@@ -7,6 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/solid";
 import User from "./User";
+import SearchHeaderOptions from "./SearchHeaderOptions";
 
 export default function SearchHeader() {
   const { push, query } = useRouter();
@@ -17,7 +18,7 @@ export default function SearchHeader() {
     // @ts-ignore
     const term = searchInputRef.current.value;
     if (!term?.trim()) return;
-    push(`/search?term=${term.trim()}`);
+    push(`/search?term=${term.trim()}&searchType=`);
   }
 
   return (
@@ -53,6 +54,7 @@ export default function SearchHeader() {
         </form>
         <User className="ml-auto whitespace-nowrap" />
       </div>
+      <SearchHeaderOptions />
     </header>
   );
 }

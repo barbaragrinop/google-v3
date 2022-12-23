@@ -15,7 +15,7 @@ export default function Home() {
     // @ts-ignore
     const term: string | undefined = searchInputRef?.current?.value;
     if (!term?.trim()) return;
-    push(`/search?term=${term.trim()}`);
+    push(`/search?term=${term.trim()}&searchType=`);
   }
 
   return (
